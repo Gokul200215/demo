@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button onclick="insta()">ig</button>
+    </div>
+
+    <input onchange="changetext(this)" />
+    <button onclick="savestorage()">save</button>
+    <button onclick="validate()">login</button>
+    <button onclick="bck()">json</button>
+
+    <script>
+      function insta() {
+        location.href = "https://www.instagram.com/";
+      }
+
+      let input;
+      function changetext(e) {
+        input = e.value;
+      }
+      function savestorage() {
+        localStorage.setItem("name", input);
+      }
+      function validate() {
+        if (
+          localStorage.getItem("name") !== null &&
+          localStorage.getItem("name").length > 0
+        ) {
+          window.location.href = "https://www.google.com";
+          localStorage.clear();
+        } else {
+          alert("pls save");
+        }
+      }
+
+      function bck() {
+        fetch("https://jsonplaceholder.typicode.com/posts/1")
+          .then((response) => response.json())
+          .then((json) => console.log(json));
+      }
+      // indha func call panala so func remove pnadha it wrks
+      // function call() {
+      //alert,prompt,history,location,screen
+      console.log(window.screen.width);
+      console.log(location.href);
+      console.log(location.port);
+
+      history.back();
+      // location.href="https://www.google.com"
+      console.log(window.navigator.cookieEnabled);
+      alert("invalid");
+      let flag = confirm("you ready");
+      console.log(flag);
+
+      let input1 = prompt("enter name");
+      console.log(input1);
+      // }
+    </script>
+  </body>
+</html>
